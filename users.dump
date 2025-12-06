@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS Users;
+
+CREATE TABLE Users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    wallet_balance DECIMAL(10,2) DEFAULT 0
+);
+
+INSERT INTO Users (username, email, password_hash, wallet_balance) VALUES
+('SummonerOne', 'summoner1@lolmail.com', 'hash_pw_1', 150.00),
+('GamerGirl42', 'gg42@example.com', 'hash_pw_2', 75.50),
+('RetroPlayer', 'retro@example.com', 'hash_pw_3', 20.00),
+('ProNoob', 'pronoob@example.com', 'hash_pw_4', 300.00),
+('CasualJoe', 'casualjoe@example.com', 'hash_pw_5', 5.00),
+('EliteGamer', 'elite@example.com', 'hash_pw_6', 500.00),
+('FunTimes', 'funtimes@example.com', 'hash_pw_7', 25.00),
+('Strategist', 'strategist@example.com', 'hash_pw_8', 80.00),
+('RoguePlayer', 'rogue@example.com', 'hash_pw_9', 120.00),
+('ArcadeFan', 'arcadefan@example.com', 'hash_pw_10', 60.00);

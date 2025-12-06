@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS Categories;
+
+CREATE TABLE Categories (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+INSERT INTO Categories (name) VALUES
+('Action'),
+('RPG'),
+('Shooter'),
+('FPS'),
+('Adventure'),
+('MOBA'),
+('Sports'),
+('Strategy'),
+('Simulation');

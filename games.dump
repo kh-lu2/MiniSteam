@@ -1,0 +1,142 @@
+DROP TABLE IF EXISTS Games;
+
+CREATE TABLE Games (
+    game_id SERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    developer_id INT REFERENCES Developers(developer_id),
+    is_available BOOLEAN DEFAULT TRUE
+);
+
+-- 100 unique games
+INSERT INTO Games (title, price, developer_id, is_available) VALUES
+-- Valve
+('Half-Life 2', 9.99, 1, TRUE),
+('Portal 2', 14.99, 1, TRUE),
+('Dota 2', 0.00, 1, TRUE),
+('Counter-Strike: Global Offensive', 14.99, 1, TRUE),
+('Left 4 Dead 2', 9.99, 1, TRUE),
+-- Rockstar Games
+('Grand Theft Auto V', 29.99, 2, TRUE),
+('Red Dead Redemption 2', 59.99, 2, TRUE),
+('L.A. Noire', 19.99, 2, TRUE),
+('Bully', 9.99, 2, TRUE),
+-- Ubisoft
+('Assassin''s Creed Valhalla', 49.99, 3, TRUE),
+('Far Cry 6', 39.99, 3, TRUE),
+('Rainbow Six Siege', 19.99, 3, TRUE),
+('Watch Dogs 2', 24.99, 3, TRUE),
+('The Division 2', 29.99, 3, TRUE),
+-- Bethesda Softworks
+('The Elder Scrolls V: Skyrim', 39.99, 4, TRUE),
+('Fallout 4', 29.99, 4, TRUE),
+('Dishonored 2', 24.99, 4, TRUE),
+('Doom (2016)', 19.99, 4, TRUE),
+('The Elder Scrolls IV: Oblivion', 19.99, 4, TRUE),
+-- CD Projekt Red
+('The Witcher 3: Wild Hunt', 34.99, 5, TRUE),
+('Cyberpunk 2077', 49.99, 5, TRUE),
+('Gwent: The Witcher Card Game', 0.00, 5, TRUE),
+('The Witcher 2: Assassins of Kings', 14.99, 5, TRUE),
+-- Naughty Dog
+('The Last of Us Part II', 39.99, 6, TRUE),
+('Uncharted 4: A Thief''s End', 29.99, 6, TRUE),
+('Uncharted: The Lost Legacy', 19.99, 6, TRUE),
+('Uncharted 3: Drake''s Deception', 19.99, 6, TRUE),
+('Uncharted: Drake''s Fortune', 9.99, 6, TRUE),
+-- Blizzard Entertainment
+('Overwatch', 19.99, 7, TRUE),
+('World of Warcraft', 14.99, 7, TRUE),
+('Diablo III', 19.99, 7, TRUE),
+('Diablo II: Resurrected', 19.99, 7, TRUE),
+('Starcraft II', 29.99, 7, TRUE),
+-- Electronic Arts
+('FIFA 21', 49.99, 8, TRUE),
+('Madden NFL 21', 49.99, 8, TRUE),
+('The Sims 4', 39.99, 8, TRUE),
+('Battlefield V', 29.99, 8, TRUE),
+('Need for Speed Heat', 29.99, 8, TRUE),
+-- Square Enix
+('Final Fantasy VII Remake', 59.99, 9, TRUE),
+('Kingdom Hearts III', 39.99, 9, TRUE),
+('Tomb Raider (2013)', 19.99, 9, TRUE),
+('Final Fantasy XV', 39.99, 9, TRUE),
+('NieR: Automata', 29.99, 9, TRUE),
+-- BioWare
+('Mass Effect Legendary Edition', 49.99, 10, TRUE),
+('Dragon Age: Inquisition', 29.99, 10, TRUE),
+('Mass Effect 2', 9.99, 10, TRUE),
+('Dragon Age: Origins', 14.99, 10, TRUE),
+-- Capcom
+('Resident Evil 2 Remake', 19.99, 11, TRUE),
+('Monster Hunter: World', 29.99, 11, TRUE),
+('Resident Evil 3 Remake', 19.99, 11, TRUE),
+('Street Fighter V', 19.99, 11, TRUE),
+-- Konami
+('Metal Gear Solid V: The Phantom Pain', 19.99, 12, TRUE),
+('Pro Evolution Soccer 2021', 49.99, 12, TRUE),
+('Silent Hill 2', 9.99, 12, TRUE),
+-- Activision
+('Call of Duty: Modern Warfare (2019)', 59.99, 13, TRUE),
+('Call of Duty: Warzone', 0.00, 13, TRUE),
+('Sekiro: Shadows Die Twice', 39.99, 17, TRUE),
+-- id Software
+('DOOM Eternal', 39.99, 14, TRUE),
+('Wolfenstein II: The New Colossus', 29.99, 14, TRUE),
+-- Bandai Namco Studios
+('Dark Souls III', 29.99, 15, TRUE),
+('Tekken 7', 19.99, 15, TRUE),
+('Ni no Kuni II', 39.99, 15, TRUE),
+-- Sega
+('Yakuza: Like a Dragon', 39.99, 16, TRUE),
+('Sonic Mania', 19.99, 16, TRUE),
+('Total War: Warhammer II', 29.99, 16, TRUE),
+-- FromSoftware
+('Elden Ring', 59.99, 17, TRUE),
+('Bloodborne', 29.99, 17, TRUE),
+('Dark Souls', 14.99, 17, TRUE),
+-- Rocksteady Studios
+('Batman: Arkham Knight', 19.99, 18, TRUE),
+('Batman: Arkham Asylum', 9.99, 18, TRUE),
+('Batman: Arkham City', 14.99, 18, TRUE),
+-- 2K Games
+('BioShock Infinite', 14.99, 19, TRUE),
+('XCOM 2', 29.99, 19, TRUE),
+('Civilization VI', 49.99, 19, TRUE),
+-- Telltale Games
+('The Walking Dead: Season One', 9.99, 20, TRUE),
+('The Walking Dead: Season Two', 9.99, 20, TRUE),
+('The Wolf Among Us', 14.99, 20, TRUE),
+-- Respawn Entertainment
+('Apex Legends', 0.00, 21, TRUE),
+('Titanfall 2', 19.99, 21, TRUE),
+('Star Wars Jedi: Fallen Order', 39.99, 21, TRUE),
+-- Riot Games
+('League of Legends', 0.00, 22, TRUE),
+('Teamfight Tactics', 0.00, 22, TRUE),
+-- ArenaNet
+('Guild Wars 2', 19.99, 23, TRUE),
+('Guild Wars Nightfall', 9.99, 23, TRUE),
+-- LucasArts
+('Star Wars: Knights of the Old Republic', 14.99, 24, TRUE),
+('Monkey Island 2: LeChuck''s Revenge', 9.99, 24, TRUE),
+-- IO Interactive
+('Hitman 3', 39.99, 25, TRUE),
+('Hitman 2', 29.99, 25, TRUE),
+-- Blizzard North
+('Diablo', 9.99, 26, TRUE),
+('Diablo II', 14.99, 26, TRUE),
+-- EA Sports
+('FIFA 22', 59.99, 27, TRUE),
+('Madden NFL 22', 59.99, 27, TRUE),
+-- Bethesda Game Studios
+('Fallout 76', 29.99, 28, TRUE),
+('The Elder Scrolls Online', 29.99, 28, TRUE),
+-- CD Projekt
+('The Witcher: Enhanced Edition', 9.99, 29, TRUE),
+('Thronebreaker: The Witcher Tales', 14.99, 29, TRUE),
+-- Valve South
+('Portal', 9.99, 30, TRUE),
+('Left 4 Dead', 9.99, 30, TRUE),
+('Half-Life', 9.99, 30, TRUE),
+('Team Fortress 2', 0.00, 30, TRUE);
