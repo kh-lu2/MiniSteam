@@ -1,11 +1,9 @@
-DROP TABLE IF EXISTS Developers;
-
-CREATE TABLE Developers (
+CREATE TABLE developers (
     developer_id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
 
-INSERT INTO Developers (name) VALUES
+INSERT INTO developers (name) VALUES
 ('Valve'),
 ('Rockstar Games'),
 ('Ubisoft'),

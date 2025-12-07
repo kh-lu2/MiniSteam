@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS Games;
-
 CREATE TABLE Games (
     game_id SERIAL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,

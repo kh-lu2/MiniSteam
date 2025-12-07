@@ -1,0 +1,166 @@
+CREATE TABLE GameCategories (
+    game_id INT REFERENCES Games(game_id),
+    category_id INT REFERENCES Categories(category_id),
+    PRIMARY KEY (game_id, category_id)
+);
+
+INSERT INTO GameCategories (game_id, category_id) VALUES
+-- Valve
+(1, 1), (1, 3), (1, 4),        -- Half-Life 2
+(2, 5),                         -- Portal 2
+(3, 6),                         -- Dota 2
+(4, 3), (4, 4),                  -- Counter-Strike: Global Offensive
+(5, 1), (5, 3),                  -- Left 4 Dead 2
+
+-- Rockstar Games
+(6, 1), (6, 5),                  -- GTA V
+(7, 1), (7, 5),                  -- Red Dead Redemption 2
+(8, 5),                           -- L.A. Noire
+(9, 5),                           -- Bully
+
+-- Ubisoft
+(10, 5), (10, 1),                 -- Assassin's Creed Valhalla
+(11, 1), (11, 3),                 -- Far Cry 6
+(12, 3), (12, 4),                 -- Rainbow Six Siege
+(13, 1), (13, 5),                 -- Watch Dogs 2
+(14, 1), (14, 3),                 -- The Division 2
+
+-- Bethesda Softworks
+(15, 2), (15, 5),                 -- Skyrim
+(16, 2),                           -- Fallout 4
+(17, 1), (17, 5),                 -- Dishonored 2
+(18, 1), (18, 3), (18, 4),        -- Doom (2016)
+(19, 2),                           -- Oblivion
+
+-- CD Projekt Red
+(20, 2), (20, 5),                 -- Witcher 3
+(21, 2), (21, 5),                 -- Cyberpunk 2077
+(22, 8),                           -- Gwent
+(23, 2), (23, 5),                 -- Witcher 2
+
+-- Naughty Dog
+(24, 5),                           -- Last of Us II
+(25, 5),                           -- Uncharted 4
+(26, 5),                           -- Uncharted: Lost Legacy
+(27, 5),                           -- Uncharted 3
+(28, 5),                           -- Uncharted: Drake's Fortune
+
+-- Blizzard Entertainment
+(29, 1), (29, 3),                  -- Overwatch
+(30, 9),                           -- World of Warcraft
+(31, 2), (31, 1),                  -- Diablo III
+(32, 2), (32, 1),                  -- Diablo II: Resurrected
+(33, 8),                           -- Starcraft II
+
+-- Electronic Arts
+(34, 7),                           -- FIFA 21
+(35, 7),                           -- Madden NFL 21
+(36, 9),                           -- The Sims 4
+(37, 3),                           -- Battlefield V
+(38, 1),                           -- Need for Speed Heat
+
+-- Square Enix
+(39, 2), (39, 5),                  -- FF VII Remake
+(40, 2),                           -- Kingdom Hearts III
+(41, 5),                           -- Tomb Raider
+(42, 2),                           -- FF XV
+(43, 1), (43, 2),                  -- NieR Automata
+
+-- BioWare
+(44, 2),                           -- Mass Effect Legendary
+(45, 2),                           -- Dragon Age: Inquisition
+(46, 2),                           -- Mass Effect 2
+(47, 2),                           -- Dragon Age: Origins
+
+-- Capcom
+(48, 1), (48, 5),                  -- RE2 Remake
+(49, 1),                           -- Monster Hunter
+(50, 1),                           -- RE3 Remake
+(51, 1),                           -- Street Fighter V
+
+-- Konami
+(52, 1), (52, 5),                  -- MGS V
+(53, 7),                           -- PES 2021
+(54, 5),                           -- Silent Hill 2
+
+-- Activision
+(55, 3), (55, 4),                  -- CoD MW2019
+(56, 3), (56, 4),                  -- CoD Warzone
+(57, 1), (57, 2), (57, 5),         -- Sekiro
+
+-- id Software
+(58, 1), (58, 3), (58, 4),         -- DOOM Eternal
+(59, 1), (59, 3), (59, 4),         -- Wolfenstein II
+
+-- Bandai Namco Studios
+(60, 2), (60, 1),                  -- Dark Souls III
+(61, 1),                           -- Tekken 7
+(62, 2), (62, 5),                  -- Ni no Kuni II
+
+-- Sega
+(63, 5), (63, 1),                  -- Yakuza: Like a Dragon
+(64, 1),                           -- Sonic Mania
+(65, 8),                           -- Total War Warhammer II
+
+-- FromSoftware
+(66, 2), (66, 1),                  -- Elden Ring
+(67, 2), (67, 1),                  -- Bloodborne
+(68, 2), (68, 1),                  -- Dark Souls
+
+-- Rocksteady Studios
+(69, 1), (69, 5),                  -- Batman: Arkham Knight
+(70, 5),                           -- Batman: Arkham Asylum
+(71, 5),                           -- Batman: Arkham City
+
+-- 2K Games
+(72, 5), (72, 1),                  -- Bioshock Infinite
+(73, 8),                           -- XCOM 2
+(74, 8), (74, 9),                  -- Civilization VI
+
+-- Telltale Games
+(75, 5),                           -- TWD Season 1
+(76, 5),                           -- TWD Season 2
+(77, 5),                           -- The Wolf Among Us
+
+-- Respawn Entertainment
+(78, 3), (78, 4),                  -- Apex Legends
+(79, 3), (79, 4),                  -- Titanfall 2
+(80, 5),                           -- Star Wars Jedi: Fallen Order
+
+-- Riot Games
+(81, 6),                           -- League of Legends
+(82, 8),                           -- Teamfight Tactics
+
+-- ArenaNet
+(83, 2), (83, 8),                  -- Guild Wars 2
+(84, 5),                           -- Guild Wars Nightfall
+
+-- LucasArts
+(85, 2), (85, 5),                  -- KOTOR
+(86, 5),                           -- Monkey Island 2
+
+-- IO Interactive
+(87, 1), (87, 5),                  -- Hitman 3
+(88, 1), (88, 5),                  -- Hitman 2
+
+-- Blizzard North
+(89, 2), (89, 1),                  -- Diablo
+(90, 2), (90, 1),                  -- Diablo II
+
+-- EA Sports
+(91, 7),                           -- FIFA 22
+(92, 7),                           -- Madden NFL 22
+
+-- Bethesda Game Studios
+(93, 2), (93, 9),                  -- Fallout 76
+(94, 9),                           -- Elder Scrolls Online
+
+-- CD Projekt
+(95, 2),                           -- Witcher: Enhanced Edition
+(96, 2),                           -- Thronebreaker
+
+-- Valve South
+(97, 5),                           -- Portal
+(98, 1),                           -- Left 4 Dead
+(99, 1),                           -- Half-Life
+(100, 1), (100, 3);                -- Team Fortress 2

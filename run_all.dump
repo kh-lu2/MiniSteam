@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS categories, developers, games, users, gamecategories, library, orders, orderitems, reviews CASCADE;
+
+\i table_dumps/categories.dump
+\i table_dumps/developers.dump
+\i table_dumps/games.dump
+\i table_dumps/users.dump
+\i table_dumps/gamecategories.dump
+\i table_dumps/library.dump
+\i table_dumps/orders.dump
+\i table_dumps/reviews.dump
