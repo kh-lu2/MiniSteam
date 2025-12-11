@@ -1,0 +1,79 @@
+erDiagram
+    Users {
+        INT user_id PK
+        VARCHAR username UK
+        VARCHAR email UK
+        VARCHAR password_hash
+        DECIMAL wallet_balance
+    }
+    
+    Developers {
+        INT developer_id PK
+        VARCHAR name
+    }
+    
+    Games {
+        INT game_id PK
+        VARCHAR title
+        DECIMAL price
+        INT developer_id FK
+        BOOLEAN is_available
+    }
+    
+    Categories {
+        INT category_id PK
+        VARCHAR name
+    }
+    
+    Library {
+        INT library_id PK
+        INT user_id FK
+        INT game_id FK
+        DECIMAL purchase_price
+        INT total_playtime
+    }
+    
+    Orders {
+        INT order_id PK
+        INT user_id FK
+        TIMESTAMP order_date
+        DECIMAL total_amount
+        VARCHAR status
+    }
+    
+    OrderItems {
+        INT order_item_id PK
+        INT order_id FK
+        INT game_id FK
+        DECIMAL price
+    }
+    
+    Reviews {
+        INT review_id PK
+        INT user_id FK
+        INT game_id FK
+        INT rating
+        TIMESTAMP review_date
+        BOOLEAN is_verified_owner
+    }
+    
+    GameCategories {
+        INT game_id FK
+        INT category_id FK
+    }
+
+    Users ||--o{ Library : "posiada"
+    Users ||--o{ Orders : "składa"
+    Users ||--o{ Reviews : "pisze"
+    
+    Developers ||--o{ Games : "tworzy"
+    
+    Games }o--o{ Categories : "kategorie"
+    Games ||--o{ Library : "w_bibliotece"
+    Games ||--o{ OrderItems : "w_zamówieniu"
+    Games ||--o{ Reviews : "otrzymuje"
+    
+    Orders ||--o{ OrderItems : "zawiera"
+    
+    GameCategories }|--|| Games : "przypisanie_gry"
+    GameCategories }|--|| Categories : "przypisanie_kategorii"
