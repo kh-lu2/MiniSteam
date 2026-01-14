@@ -19,8 +19,8 @@ BEGIN
         RAISE EXCEPTION 'Gra jest już w bibliotece użytkownika';
     END IF;
     
-    INSERT INTO Library (user_id, game_id, purchase_date, purchase_price, total_playtime, last_played)
-    VALUES (p_user_id, p_game_id, CURRENT_DATE, p_purchase_price, 0, NULL);
+    INSERT INTO Library (user_id, game_id, purchase_price, total_playtime)
+    VALUES (p_user_id, p_game_id, p_purchase_price, 0);
     
     RAISE NOTICE 'Gra % dodana do biblioteki użytkownika %', p_game_id, p_user_id;
 END;
@@ -46,8 +46,7 @@ BEGIN
     WHERE user_id = p_user_id AND game_id = p_game_id;
     
     UPDATE Library
-    SET total_playtime = v_current_playtime + p_minutes_played,
-        last_played = CURRENT_DATE
+    SET total_playtime = v_current_playtime + p_minutes_played
     WHERE user_id = p_user_id AND game_id = p_game_id;
     
     RAISE NOTICE 'Zaktualizowano czas gry: dodano % minut (łącznie: % minut)', 
@@ -96,8 +95,8 @@ BEGIN
             RAISE EXCEPTION 'Gra o ID % nie istnieje', v_game_id;
         END IF;
         
-        INSERT INTO OrderItems (order_id, game_id, price, quantity)
-        VALUES (v_order_id, v_game_id, v_price, 1);
+        INSERT INTO OrderItems (order_id, game_id, price)
+        VALUES (v_order_id, v_game_id, v_price);
         
         CALL add_game_to_library(p_user_id, v_game_id, v_price);
     END LOOP;

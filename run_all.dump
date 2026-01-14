@@ -13,6 +13,8 @@ DROP TABLE IF EXISTS categories, developers, games, users, gamecategories, libra
 \i table_dumps/views.sql
 \i table_dumps/indexes.sql
 \i table_dumps/functions.sql
+\i table_dumps/procedures.sql
+\i table_dumps/security_roles.sql
 
 SELECT 'Baza danych MiniSteam uruchomiona pomyślnie!' AS message;
 SELECT COUNT(*) as total_games FROM Games;
