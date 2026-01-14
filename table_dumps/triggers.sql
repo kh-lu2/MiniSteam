@@ -43,4 +43,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Można uruchamiać ten trigger przy jakimś zdarzeniu (np. logowaniu do gry)
+CREATE TRIGGER trg_update_playtime
+AFTER INSERT ON Library
+FOR EACH ROW
+EXECUTE FUNCTION update_playtime();
